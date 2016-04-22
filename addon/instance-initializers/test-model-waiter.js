@@ -17,7 +17,7 @@ export function initialize(appInstance) {
       // but unfortunately it is buggy. Use that once the issue is fixed:
       // https://github.com/ember-cli/ember-resolver/issues/120
       // Until then:
-      var modelRegexp = /^[a-zA-Z0-9-_]+\/models\/(.*)$/;
+      var modelRegexp = new RegExp(`^${appInstance.application.name}\/models\/(.*)$`);
       var modelNames = new ModuleRegistry()
         .moduleNames()
         .filter((name) => modelRegexp.test(name))
